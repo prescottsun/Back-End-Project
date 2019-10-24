@@ -49,3 +49,20 @@ CREATE TABLE activity_log (
     date_completed DATE DEFAULT NOW(),
     hours_spent DECIMAL DEFAULT 0
 );
+
+
+INSERT INTO users (first_name, last_name, email, password, about)
+    VALUES ('Prescott', 'Sun', 'sunprescott@gmail.com', 'password', 'I am a student at DigitalCrafts')
+    ;
+
+INSERT INTO resources (title, type, description, url)
+    VALUES ('Test Resource', 'Video Tutorial', 'A video tutorial on RESTful Node APIs', 'https://www.youtube.com/watch?v=vjf774RKrLc')
+    ;
+
+INSERT INTO reviews (user_id, resource_id, stars, content)
+    VALUES (1, 1, 5, 'This test resource is great')
+    ;
+
+INSERT INTO activity_log (user_id, resource_id, activity_name, activity_description, date_completed, hours_spent)
+    VALUES (1, 1, 'Watching video tutorial', 'Watched the whole video tutorial', '10/23/2019', 2)
+    ;
