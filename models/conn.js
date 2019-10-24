@@ -6,7 +6,9 @@ const pgp = require("pg-promise")({
 
 const options = {
     host: "localhost",
-    database: "DB NAME HERE!!!"  // Change to name of database. Keep names the same.
+    database: "back_end_project"
+    // Windows
+    // Windows
 };
 
 const db = pgp(options);
