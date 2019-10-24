@@ -25,11 +25,11 @@ CREATE TABLE reviews (
 
 CREATE TABLE resources (
     id SERIAL PRIMARY KEY,
-
-    title TEXT,
-    url,
+    title VARCHAR(300),
+    url VARCHAR(500)
 
 );
+
 CREATE TABLE activity_log (
     id SERIAL PRIMARY KEY,
     project_name VARCHAR(100),
@@ -40,6 +40,6 @@ CREATE TABLE activity_log (
 
     activity_type,
     date_completed,
-    time_spent,
+    time_spent
 
 );
