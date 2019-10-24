@@ -1,4 +1,5 @@
 -- Database name: back_end_project
+
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(100),
@@ -17,7 +18,7 @@ CREATE TABLE reviews (
     rating INTEGER,
     content TEXT,
     user_id INTEGER REFERENCES users(id),
-    resource_id
+    resource_id INTEGER REFERENCES resources(id)
 
 
 );
@@ -25,7 +26,7 @@ CREATE TABLE reviews (
 CREATE TABLE resources (
     id SERIAL PRIMARY KEY,
 
-    title,
+    title TEXT,
     url,
 
 );
@@ -42,4 +43,3 @@ CREATE TABLE activity_log (
     time_spent,
 
 );
-
