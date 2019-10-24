@@ -21,6 +21,7 @@ CREATE TABLE users (
     -- group/friends list
 
 );
+
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
@@ -28,17 +29,18 @@ CREATE TABLE reviews (
 
     stars DECIMAL CHECK (stars >= 1 and stars <=5),
     content VARCHAR(500)
+  
 );
 
 CREATE TABLE resources (
     id SERIAL PRIMARY KEY,
-
     title VARCHAR(200),
     type VARCHAR(200),
     description VARCHAR(500),
     url VARCHAR(200)    
 
 );
+
 CREATE TABLE activity_log (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
@@ -49,3 +51,4 @@ CREATE TABLE activity_log (
     date_completed DATE DEFAULT NOW(),
     hours_spent DECIMAL DEFAULT 0
 );
+
