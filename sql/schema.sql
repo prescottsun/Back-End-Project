@@ -29,7 +29,7 @@ CREATE TABLE reviews (
 
     stars DECIMAL CHECK (stars >= 1 and stars <=5),
     content VARCHAR(500)
-  
+
 );
 
 CREATE TABLE resources (
