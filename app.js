@@ -8,7 +8,7 @@ const FileStore = require("session-file-store")(session);
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
-// const profileRouter = require("./routes/profile");
+const profileRouter = require("./routes/profile");
 
 const resourcesRouter = require("./routes/resources");
 
@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/resources", resourcesRouter);
-// app.use("/profile", profileRouter);
+app.use("/profile", profileRouter);
 
 
 module.exports = app;

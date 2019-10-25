@@ -59,10 +59,10 @@ class User {
         }
     }
 
-    async updateDescription() {
+    async updateDescription(about) {
         try {
             const response = await db.one(
-                `UPDATE users SET about;`,
+                `UPDATE users SET about WHERE id = ($1);`,
                 [
                     this.about
                 ]
