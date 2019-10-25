@@ -1,6 +1,6 @@
 const pgp = require("pg-promise")({
     query: e => {
-        console.log("QUERY:", e.query);  //Testing to make sure query shows in terminal
+        // console.log("QUERY:", e.query);  //Testing to make sure query shows in terminal
     }
 });
 
