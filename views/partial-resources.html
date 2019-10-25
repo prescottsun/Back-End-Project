@@ -1,0 +1,13 @@
+<section class='section'>
+    <ul>
+        ${resourceData.map(resource => `
+            <li><a href='./resources/${resource.id}'>
+                ${resource.title} - Type: ${resource.type}
+            </a> </li>
+                ${resource.description}
+            
+            `).join('')}
+    </ul>
+
+
+</section>

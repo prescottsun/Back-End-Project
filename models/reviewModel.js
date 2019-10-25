@@ -9,12 +9,23 @@ class Review {
         this.content = content;
     }
 
-    static async getAll() {
+    static async getReviews() {
         try {
             const response = await db.any(`SELECT * FROM reviews`);
             return response;
         } catch(err) {
             return err.message
+        }
+    }
+
+    static async getReviewsByResourceID(resource_id) {
+        try {
+            const response = await db.any (
+                `SELECT * FROM reviews WHERE resource_id = $1;`,
+                [resource_id]);
+                return response;
+        }   catch (err) {
+            return err.message;
         }
     }
 
