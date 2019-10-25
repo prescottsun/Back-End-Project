@@ -10,6 +10,8 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 // const profileRouter = require("./routes/profile");
 
+const resourcesRouter = require("./routes/resources");
+
 require("dotenv").config();
 
 const app = express();
@@ -42,6 +44,8 @@ app.use(function(req, res, next) {
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/resources", resourcesRouter);
 // app.use("/profile", profileRouter);
+
 
 module.exports = app;

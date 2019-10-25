@@ -1,0 +1,11 @@
+<section class='section'>
+    <h2><a href=${resourceData.url}>${resourceData.title} </a>
+        : ${resourceData.type} </h2>
+    <ul>
+        ${resourceReviews.map(review => `
+            <li>
+                ${review.stars} Stars: ${review.content}
+            </li>
+            `).join('')}
+    </ul>
+</section>
