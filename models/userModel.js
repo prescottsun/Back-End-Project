@@ -50,15 +50,14 @@ class User {
         }
     }
 
-    // static async getInfo() {
-    //     try {
-    //         const query = await db.any(`SELECT * FROM users WHERE id = $1;`, [this.id]);
-    //         console.log(query)
-    //         return query;
-    //     } catch (err) {
-    //         return err.message;
-    //     }
-    // }
+    static async getInfo() {
+        try {
+            const response = await db.one(`SELECT * FROM users;`);
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
 
     async updateDescription() {
         try {
