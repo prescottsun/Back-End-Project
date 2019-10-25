@@ -2,11 +2,12 @@ const db = require("./conn");
 const bcrypt = require("bcryptjs");
 
 class User {
-    constructor(first_name, last_name, email_address, password) {
+    constructor(first_name, last_name, email_address, password, about) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.email_address = email_address;
         this.password = password;
+        this.about = about;
     }
 
     checkPassword(hashedPassword) {
@@ -48,6 +49,31 @@ class User {
             return err.message;
         }
     }
+
+    // static async getInfo() {
+    //     try {
+    //         const query = await db.any(`SELECT * FROM users WHERE id = $1;`, [this.id]);
+    //         console.log(query)
+    //         return query;
+    //     } catch (err) {
+    //         return err.message;
+    //     }
+    // }
+
+    async updateDescription() {
+        try {
+            const response = await db.one(
+                `UPDATE users SET about;`,
+                [
+                    this.about
+                ]
+            );
+            return response;
+        } catch (err) {
+            return err.message;
+        }
+    }
 }
+
 
 module.exports = User;
