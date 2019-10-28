@@ -22,7 +22,6 @@ class User {
                 [this.email_address]
             );
             const valid = this.checkPassword(response.password);
-            // ! = Not True   !! = forces to a boolean
             if (!!valid) {
                 const { id, first_name, last_name } = response;
                 return { isValid: valid, user_id: id, first_name, last_name };
