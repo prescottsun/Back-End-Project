@@ -2,7 +2,8 @@ const db = require("./conn");
 const bcrypt = require("bcryptjs");
 
 class User {
-    constructor(first_name, last_name, email_address, password, about) {
+    constructor(id, first_name, last_name, email_address, password, about) {
+        this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email_address = email_address;
@@ -20,13 +21,13 @@ class User {
                 `SELECT * FROM users WHERE email = $1;`,
                 [this.email_address]
             );
-            const isValid = this.checkPassword(response.password);
+            const valid = this.checkPassword(response.password);
             // ! = Not True   !! = forces to a boolean
-            if (!!isValid) {
+            if (!!valid) {
                 const { id, first_name, last_name } = response;
-                return { isValid, id, first_name, last_name };
+                return { isValid: valid, user_id: id, first_name, last_name };
             } else {
-                return { isValid };
+                return { isValid: valid };
             }
         } catch (err) {
             return err.message;
@@ -50,21 +51,23 @@ class User {
         }
     }
 
-    static async getInfo() {
+    static async getInfo(user_id) {
         try {
-            const response = await db.one(`SELECT * FROM users;`);
+            const response = await db.one(`SELECT * FROM users where id = $1;`,
+            [user_id]);
             return response;
         } catch (err) {
             return err.message;
         }
     }
 
-    async updateDescription(about) {
+    async updateDescription(about, id) {
         try {
             const response = await db.one(
-                `UPDATE users SET about WHERE id = ($1);`,
+                `UPDATE users SET about = ${1} WHERE id = ${2};`,
                 [
-                    this.about
+                    this.about,
+                    this.id
                 ]
             );
             return response;

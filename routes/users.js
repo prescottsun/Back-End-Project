@@ -39,7 +39,7 @@ router.post("/signup", async (req, res, next) => {
     const { first_name, last_name, email_address } = req.body;
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
-    const user = new UserModel(first_name, last_name, email_address, hash);
+    const user = new UserModel(null, first_name, last_name, email_address, hash);
     const newUser = await user.save();
     console.log("Was user added?", newUser.id);
     if (newUser) {
@@ -54,50 +54,24 @@ router.post("/login", async(req, res, next) => {
         email_address,
         password
     } = req.body;
-    const user = new UserModel(null, null, email_address, password);
+    const user = new UserModel(null, null, null, email_address, password);
     const response = await user.login();
     if (!!response.isValid) {
         const {
-            id,
+            user_id,
             first_name,
             last_name
         } = response;
+        console.log("response from login is, ", response);
         req.session.is_logged_in = true;
         req.session.first_name = first_name;
         req.session.last_name = last_name;
-        req.session.user_id = id;
+        req.session.user_id = user_id;
         res.status(200).redirect("/");
     } else {
         res.sendStatus(401);
     }
 });
-
-
-// router.get("/profile", async (req, res, next) => {
-//     res.render("template", {
-//         locals: {
-//             title: "Profile",
-//             isLoggedIn: req.session.is_logged_in
-//         },
-//         partials: {
-//             partial: "partial-profile"
-//         }
-//     });
-// });
-
-
-// router.post("/profile", async (req, res, next) => {
-//     const { about } = req.body;
-//     const user = new UserModel(null, null, null, null, about);
-//     const response = await user.updateDescription();
-//     if (response) {
-//         res.status(200).redirect("/users/profile");
-//     } else {
-//         res.sendStatus(401);
-//     }
-// });
-
-
 
 
 
