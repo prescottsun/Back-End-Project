@@ -42,7 +42,8 @@ router.get('/:resource_id', async (req, res, next) => {
             title: 'Reviews for this resource',
             resourceData: theResource,
             resourceReviews: theResourceReviews,
-            isLoggedIn: req.session.is_logged_in
+            isLoggedIn: req.session.is_logged_in,
+            user_id: req.session.user_id
             
         },
         partials: {

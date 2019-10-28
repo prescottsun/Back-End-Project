@@ -39,7 +39,7 @@ router.post("/signup", async (req, res, next) => {
     const { first_name, last_name, email_address } = req.body;
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
-    const user = new UserModel(first_name, last_name, email_address, hash);
+    const user = new UserModel(null, first_name, last_name, email_address, hash);
     const newUser = await user.save();
     console.log("Was user added?", newUser.id);
     if (newUser) {
@@ -54,7 +54,7 @@ router.post("/login", async(req, res, next) => {
         email_address,
         password
     } = req.body;
-    const user = new UserModel(null, null, email_address, password);
+    const user = new UserModel(null, null, null, email_address, password);
     const response = await user.login();
     if (!!response.isValid) {
         const {

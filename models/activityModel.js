@@ -38,7 +38,7 @@ class ActivityLog {
     async addActivityLog() {
         try {
             const response = await db.result(
-                `INSERT INTO activity_log (user_id, rescource_id, activity_name, activity_description, date_completed, hours_spent) VALUES ($1, $2, $3, $4, $5, $6);`,
+                `INSERT INTO activity_log (user_id, resource_id, activity_name, activity_description, date_completed, hours_spent) VALUES ($1, $2, $3, $4, $5, $6);`,
             [this.user_id, this.resource_id, this.activity_name, this.activity_description, this.date_completed, this.hours_spent]);
             return Response;
         } catch(err) {
