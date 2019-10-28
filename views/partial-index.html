@@ -14,7 +14,7 @@ ${!!isLoggedIn ? `
             <li>
                 <a href='./profile'>
                 ${activity.first_name} ${activity.last_name}</a>
-                spent ${activity.hours_spent} hours ${activity.activity_name}</li>
+                ${activity.activity_description} (${activity.hours_spent} hours)</li>
         `).join('')}
     </ul>
 </section>
@@ -24,6 +24,7 @@ ${!!isLoggedIn ? `
     <form action="/add-activity" method="POST">
         <label> Resource
             <select name="resource_id">
+                <option>Select a resource</option>
                 ${resourceData.map(resource => `
                     <option value=${resource.id}>
                         ${resource.title}
