@@ -8,10 +8,14 @@ router.get("/", async (req, res, next) => {
     res.render("template", {
         locals: {
             title: "Profile",
-            isLoggedIn: req.session.is_logged_in
+            isLoggedIn: req.session.is_logged_in,
+            first_name: req.session.first_name,
+            last_name: req.session.last_name,
+            email_address: req.session.email_address
         },
         partials: {
             partial: "partial-profile"
+            
         }
     });
 });

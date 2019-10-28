@@ -10,7 +10,7 @@ router.get("/", async (req, res, next) => {
             title: "Home Page",
             userInfo: userData,
             isLoggedIn: req.session.is_logged_in,
-            userName: req.session.first_name
+            first_name: req.session.first_name
         },
         partials: {
             partial: "partial-index"
