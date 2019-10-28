@@ -64,10 +64,10 @@ class User {
     async updateDescription(about, id) {
         try {
             const response = await db.one(
-                `UPDATE users SET about = ${1} WHERE id = ${2};`,
+                `UPDATE users SET about = $1 WHERE id = $2;`,
                 [
-                    this.about,
-                    this.id
+                    about,
+                    id
                 ]
             );
             return response;

@@ -10,7 +10,7 @@ router.get("/", async (req, res, next) => {
         locals: {
             title: "Profile",
             isLoggedIn: req.session.is_logged_in,
-            userData: userData,
+            userData: userData
             // first_name: req.session.first_name,
             // last_name: req.session.last_name,
             // email_address: req.session.email_address
@@ -24,9 +24,9 @@ router.get("/", async (req, res, next) => {
 
 
 router.post("/", async (req, res, next) => {
-    const { about } = req.body;
-    const user = new UserModel(null, null, null, null, null, about);
-    const response = await user.updateDescription();
+    const { user_id, about } = req.body;
+    const user = new UserModel(user_id, null, null, null, null, about);
+    const response = await user.updateDescription(about, user_id);
     if (response) {
         res.status(200).redirect("/profile");
     } else {

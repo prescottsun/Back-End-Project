@@ -19,7 +19,7 @@ ${!!isLoggedIn ? `
     </ul>
 </section>
 
-
+<h2>Enter an Activity Log</h2>
 <section>
     <form action="/add-activity" method="POST">
         <label> Resource
@@ -42,7 +42,7 @@ ${!!isLoggedIn ? `
         </label>
         <label>
             Date Completed
-            <input type="text" aria-placeholder="Date Completed" name="date_completed">
+            <input type="text" placeholder='MM/DD/YYYY' aria-placeholder="Date Completed" name="date_completed">
         </label>
         <label>
             Hours Spent
