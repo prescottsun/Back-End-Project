@@ -26,7 +26,7 @@ class ActivityLog {
             SELECT u.first_name, u.last_name, al.*
                 FROM activity_log al
                 INNER JOIN users u on al.user_id = u.id
-                SORT BY al.date_completed DESC
+                ORDER BY al.date_completed DESC
                 LIMIT 10;
             `)
             return response;
