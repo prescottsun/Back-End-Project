@@ -9,16 +9,16 @@
             </div>
         </div>
         <div class="main-container">
-            <p><i class="fa fa-envelope info"></i>${userData.email_address}</p>
+            <p><i class="fa fa-envelope info"></i>${userData.email}</p>
+            <p>${userData.about}</p>
             <hr>
             <div class='box' name='box-shadow'>
                     <form action="/profile" method="POST">
                         <label>
-                            <textarea class="textarea is-medium" placeholder="Tell me about yourself" rows="7"></textarea>
-                        </label><br />
-
-                <button type="submit">Update</button>
-            </form>
-        </div>
-    </div>
-</div>
+                            Update your about me: 
+                            <input type="text" aria-placeholder="Update your about me" name="about">
+                        </label>
+                        <input type="hidden" name="user_id" value=${userData.id} />
+                        <button type="submit">Update</button>
+                    </form>
+                    </div>
