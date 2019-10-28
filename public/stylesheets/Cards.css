@@ -1,0 +1,47 @@
+body
+{
+    font-family: sans-serif;
+    color: #a51616;
+    background-color: rgb(31, 8, 163);
+
+}
+.profile-card
+{
+    width: 400px;
+    margin: auto;
+    background: #fff;
+    box-shawdow: 0 4px 10px 0 rgba(0,0,0,0.5);
+}
+.image-container
+{
+    position: relative;
+}
+.info
+{
+    color: #4b4fe2;
+    margin-right: 16px;
+}
+.main-container
+{
+    padding: 20px;
+}
+.skill-bar
+{
+    background-color: #bdc9ea;
+    border-radius: 16px;
+}
+.progress-bar
+{
+    padding: 0.1em 16px;
+    border-radius: 16px;
+    text-align: center;
+    color: #fff;
+    background-color: #4b4fe2;
+}
+.title
+{
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+
+}

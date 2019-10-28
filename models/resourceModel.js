@@ -9,12 +9,23 @@ class Resource {
         this.url = url;
     }
 
-    static async getAll() {
+    static async getResources() {
         try {
             const response = await db.any(`SELECT * FROM resources`);
             return response;
         } catch(err) {
             return err.message
+        }
+    }
+
+    static async getResourceByID(id) {
+        try {
+            const response = await db.one (
+                `SELECT * FROM resources WHERE id = $1;`,
+                [id]);
+                return response;
+        }   catch (err) {
+            return err.message;
         }
     }
 

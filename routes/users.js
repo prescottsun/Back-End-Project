@@ -73,37 +73,31 @@ router.post("/login", async(req, res, next) => {
 });
 
 
+// router.get("/profile", async (req, res, next) => {
+//     res.render("template", {
+//         locals: {
+//             title: "Profile",
+//             isLoggedIn: req.session.is_logged_in
+//         },
+//         partials: {
+//             partial: "partial-profile"
+//         }
+//     });
+// });
 
-router.get("/profile", async (req, res, next) => {
-    res.render("template", {
-        locals: {
-            title: "Profile",
-            isLoggedIn: req.session.is_logged_in
-        },
-        partials: {
-            partial: "partial-profile"
-        }
-    });
-});
+
+// router.post("/profile", async (req, res, next) => {
+//     const { about } = req.body;
+//     const user = new UserModel(null, null, null, null, about);
+//     const response = await user.updateDescription();
+//     if (response) {
+//         res.status(200).redirect("/users/profile");
+//     } else {
+//         res.sendStatus(401);
+//     }
+// });
 
 
-router.post("/profile", async (req, res, next) => {
-    const { about } = req.body;
-    const user = new UserModel(null, null, null, null, about);
-    const response = await user.updateDescription();
-    if (response) {
-        const { id, first_name, last_name, email_address, password } = response;
-        req.session.is_logged_in = true;
-        req.session.first_name = first_name;
-        req.session.last_name = last_name;
-        req.session.user_id = id;
-        req.session.email_address = email_address;
-        req.session.password = password;
-        res.status(200).redirect("/users/profile");
-    } else {
-        res.sendStatus(401);
-    }
-});
 
 
 
