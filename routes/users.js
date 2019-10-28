@@ -58,14 +58,15 @@ router.post("/login", async(req, res, next) => {
     const response = await user.login();
     if (!!response.isValid) {
         const {
-            id,
+            user_id,
             first_name,
             last_name
         } = response;
+        console.log("response from login is, ", response);
         req.session.is_logged_in = true;
         req.session.first_name = first_name;
         req.session.last_name = last_name;
-        req.session.user_id = id;
+        req.session.user_id = user_id;
         res.status(200).redirect("/");
     } else {
         res.sendStatus(401);
