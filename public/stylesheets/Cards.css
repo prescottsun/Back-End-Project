@@ -27,8 +27,8 @@ body
 }
 .skill-bar
 {
-    background-color: #bdc9ea;
-    border-radius: 16px;
+    /*background-color: #bdc9ea;*/
+    border-radius: 18px;
 }
 .progress-bar
 {
