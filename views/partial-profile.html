@@ -1,16 +1,7 @@
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-rel="stylesheet">
-<link rel="stylesheet" href="./stylesheets/Cards.css">
 
 
 
 
-
-
-
-
-
-<!-- <h3>Hello ${userInfo.first_name}</h3> -->
 
 <div class="profile-card">
         <div class="image-container">
@@ -24,10 +15,11 @@ rel="stylesheet">
             <div class='box' name='box-shadow'>
                     <form action="/profile" method="POST">
                         <label>
-                            A little about me: 
-                            <input type="text" aria-placeholder="Tell me about yourself" name="about">
-                        </label>
-                    
-                        <button type="submit">Update</button>
-                    </form>
-                    </div>
+                            <textarea class="textarea is-medium" placeholder="Tell me about yourself" rows="7"></textarea>
+                        </label><br />
+
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

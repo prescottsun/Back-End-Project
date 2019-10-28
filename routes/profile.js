@@ -23,7 +23,7 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
     const { about } = req.body;
-    const user = new UserModel(null, null, null, null, about);
+    const user = new UserModel(null, null, null, null, null, about);
     const response = await user.updateDescription();
     if (response) {
         res.status(200).redirect("/profile");
