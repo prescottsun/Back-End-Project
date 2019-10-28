@@ -1,32 +1,4 @@
-<section>
-    <ul>
-        ${recentActivity.map( activity => `
-            <li>
-                <a href='./profile'>
-                ${activity.first_name} ${activity.last_name}</a>
-                spent ${activity.hours_spent} hours ${activity.activity_name}</li>
-        `).join('')}
-    </ul>
-</section>
 
-<section>
-    <form action="/add-activity" method="POST">
-        <label>
-            Activity Name
-            <input type="text" aria-placeholder="Activity Name" name="activity_name">
-        </label>
-        <label>
-            Activity Description
-            <input type="text" aria-placeholder="Activity Description" name="activity_description">
-        </label>
-        <label>
-            Date Completed
-            <input type="text" aria-placeholder="Date Completed" name="date_completed">
-        </label>
-        <label>
-            Hours Spent
-            <input type="text" aria-placeholder="Hours Spent" name="hours_spent">
-        </label>
-        <button type="submit">Add Activity Log</button>
-    </form>
-</section>
+<h3>Hello ${userName}</h3>
+
+

@@ -36,5 +36,4 @@ router.post('/add-activity', async (req, res, next) => {
 });
 
 
-
 module.exports = router;

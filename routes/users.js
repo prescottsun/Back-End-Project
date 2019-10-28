@@ -73,32 +73,5 @@ router.post("/login", async(req, res, next) => {
 });
 
 
-// router.get("/profile", async (req, res, next) => {
-//     res.render("template", {
-//         locals: {
-//             title: "Profile",
-//             isLoggedIn: req.session.is_logged_in
-//         },
-//         partials: {
-//             partial: "partial-profile"
-//         }
-//     });
-// });
-
-
-// router.post("/profile", async (req, res, next) => {
-//     const { about } = req.body;
-//     const user = new UserModel(null, null, null, null, about);
-//     const response = await user.updateDescription();
-//     if (response) {
-//         res.status(200).redirect("/users/profile");
-//     } else {
-//         res.sendStatus(401);
-//     }
-// });
-
-
-
-
 
 module.exports = router;

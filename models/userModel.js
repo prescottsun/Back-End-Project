@@ -52,7 +52,8 @@ class User {
 
     static async getInfo() {
         try {
-            const response = await db.one(`SELECT * FROM users;`);
+            const response = await db.one(`SELECT * FROM users where first_name = $1;`,
+            [this.first_name]);
             return response;
         } catch (err) {
             return err.message;
@@ -62,7 +63,7 @@ class User {
     async updateDescription(about) {
         try {
             const response = await db.one(
-                `UPDATE users SET about WHERE id = ($1);`,
+                `UPDATE users SET about = ($1);`,
                 [
                     this.about
                 ]
