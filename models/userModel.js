@@ -51,10 +51,10 @@ class User {
         }
     }
 
-    static async getInfo() {
+    static async getInfo(user_id) {
         try {
-            const response = await db.one(`SELECT * FROM users where first_name = $1;`,
-            [this.first_name]);
+            const response = await db.one(`SELECT * FROM users where id = $1;`,
+            [user_id]);
             return response;
         } catch (err) {
             return err.message;
