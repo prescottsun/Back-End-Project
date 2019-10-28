@@ -7,7 +7,7 @@ const ResourceModel = require('../models/resourceModel');
 
 /* GET home page. */
 router.get("/", async (req, res, next) => {
-    // const userData = await userClass.getInfo();
+    const userData = await userClass.getInfo();
     const resourceData = await ResourceModel.getResources();
     const recentActivity = await ActivityModel.getRecentActivity();
     res.render("template", {
