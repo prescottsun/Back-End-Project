@@ -11,6 +11,16 @@
 
 <section>
     <form action="/add-activity" method="POST">
+        <label> Resource
+            <select name="resource_id">
+                ${resourceData.map(resource => `
+                    <option value=${resource.id}>
+                        ${resource.title}
+                    </option>
+                    `).join('')}
+            </select>
+        
+        </label>
         <label>
             Activity Name
             <input type="text" aria-placeholder="Activity Name" name="activity_name">

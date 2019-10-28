@@ -36,7 +36,7 @@ router.get('/:resource_id', async (req, res, next) => {
     const { resource_id } = req.params;
     const theResource = await ResourceModel.getResourceByID(resource_id);
     const theResourceReviews = await ReviewModel.getReviewsByResourceID(resource_id);
-
+console.log("session variables ", req.session);
     res.render('template', {
         locals: {
             title: 'Reviews for this resource',
@@ -54,9 +54,9 @@ router.get('/:resource_id', async (req, res, next) => {
 
 router.post('/:resource_id/add-review', async (req, res, next) => {
     const { resource_id } = req.params
-    const { stars, content } = req.body;
+    const { user_id, stars, content } = req.body;
 
-    const reviewInstance = new ReviewModel(null, req.session.id, resource_id, stars, content);
+    const reviewInstance = new ReviewModel(null, user_id, resource_id, stars, content);
     const response = await reviewInstance.addReview();
 
     if (response) {
