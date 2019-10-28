@@ -1,3 +1,13 @@
+${!!isLoggedIn ? `
+<h2>Welcome ${first_name}!</h2>
+` : `
+<h2>Welcome!</h2>
+`}
+
+
+
+
+
 <section>
     <ul>
         ${recentActivity.map( activity => `
@@ -8,6 +18,7 @@
         `).join('')}
     </ul>
 </section>
+
 
 <section>
     <form action="/add-activity" method="POST">

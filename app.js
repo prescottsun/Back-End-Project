@@ -10,8 +10,8 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const profileRouter = require("./routes/profile");
 
-// const resourcesRouter = require("./routes/resources");
-// const logEntryRouter = require("./routes/logEntry");
+const resourcesRouter = require("./routes/resources");
+const logEntryRouter = require("./routes/logEntry");
 
 require("dotenv").config();
 
@@ -45,8 +45,8 @@ app.use(function(req, res, next) {
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-// app.use("/resources", resourcesRouter);
+app.use("/resources", resourcesRouter);
 app.use("/profile", profileRouter);
-// app.use("/log-entry", logEntryRouter);
+app.use("/log-entry", logEntryRouter);
 
 module.exports = app;
