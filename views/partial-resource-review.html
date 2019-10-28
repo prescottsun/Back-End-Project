@@ -9,3 +9,15 @@
             `).join('')}
     </ul>
 </section>
+
+<form action="/resources/${resourceData.id}/add-review" method="POST">
+    <label>
+        Stars
+        <input type="text" aria-placeholder="Stars" name="stars">
+    </label>
+    <label>
+        Content
+        <input type="text" aria-placeholder="Content" name="content">
+    </label>
+    <button type="submit">Add Review</button>
+</form>
