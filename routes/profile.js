@@ -5,13 +5,15 @@ const UserModel = require("../models/userModel");
 
 
 router.get("/", async (req, res, next) => {
+    const userData = await UserModel.getInfo(req.session.user_id);
     res.render("template", {
         locals: {
             title: "Profile",
             isLoggedIn: req.session.is_logged_in,
-            first_name: req.session.first_name,
-            last_name: req.session.last_name,
-            email_address: req.session.email_address
+            userData: userData,
+            // first_name: req.session.first_name,
+            // last_name: req.session.last_name,
+            // email_address: req.session.email_address
         },
         partials: {
             partial: "partial-profile"

@@ -16,6 +16,7 @@ router.get("/", async (req, res, next) => {
             resourceData: resourceData,
             recentActivity: recentActivity,
             isLoggedIn: req.session.is_logged_in,
+            user_id: req.session.user_id,
             first_name: req.session.first_name
         },
         partials: {
