@@ -12,7 +12,7 @@
                 <h2 class="title is-4">Activities logged: </h2>
                 <p><ul>
                         ${recentActivity.map( activity => `
-                            <li>${activity.activity_description}</li>
+                            <li>${activity.activity_description} for ${activity.hours_spent} hours</li>
                             `).join('')}
                         </ul></p>
                 <br />
