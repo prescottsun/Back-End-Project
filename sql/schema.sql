@@ -1,9 +1,9 @@
 -- Database name: back_end_project
 
--- DROP TABLE users;
--- DROP TABLE reviews;
--- DROP TABLE resources;
--- DROP TABLE activity_log;
+DELETE FROM TABLE users;
+DELETE FROM resources;
+DELETE FROM reviews;
+DELETE FROM activity_log;
 
 
 CREATE TABLE users (
@@ -63,9 +63,23 @@ INSERT INTO resources (title, type, description, url)
     ,('Topics of Javascript/ES6-8', 'Video tutorials', 'Youtube tutorials by The Coding Train on different Javascript topcs', 'https://www.youtube.com/playlist?list=PLRqwX-V7Uu6YgpA3Oht-7B4NBQwFVe3pr')
     ,( 'Node JS Tutorial for Beginners', 'Video tutorials', 'Youtube tutorials by The Net Ninja on using Node.js', 'https://www.youtube.com/playlist?list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp')
     ,('Hashing in Action: Understanding bcrypt', 'Article', 'Blog article going in-depth on the usage of bcrypt', 'https://auth0.com/blog/hashing-in-action-understanding-bcrypt/')
-    ,("You Don't Know JS" , 'Book series', 'Book series by Kyle Simpson on Javascript', 'https://github.com/getify/You-Dont-Know-JS')
+    ,('You Dont Know JS' , 'Book series', 'Book series by Kyle Simpson on Javascript', 'https://github.com/getify/You-Dont-Know-JS')
     ,( 'Designing a RESTful API with Node and Postgres', 'Article', 'Blog tutorial on using Node and PSQL to create a RESTful API', 'https://mherman.org/blog/designing-a-restful-api-with-node-and-postgres/#postgres-setup')
     ,( 'Crash Course Computer Science', 'Video series', 'Animated Youtube series covering various topics on the history and theory of computer science', 'https://www.youtube.com/playlist?list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo')
+    ;
+
+
+INSERT INTO activity_log (user_id, resource_id, activity_name, activity_description, date_completed, hours_spent)
+    VALUES (1, 1, 'Watched a video tutorial', 'Watched a video tutorial on creating an API with the NEP stack', '10/23/2019', 2)
+    ,(1, 2, 'Watched video tutorials', 'Watched video tutorials on different topics of Javascript', '10/25/2019', 3)
+    ,(1, 4, 'Read an article', 'Read an article on bcrypt', '10/26/2019', 1)
+    ,(2, 3, 'Watched video tutorials', 'Watched a Youtube series on using Node.js', '10/20/2019', 4)
+    ,(2, 2, 'Read an article', 'Read a blog article on how to use bcrypt', '10/27/2019', 1)
+    ,(1, 6, 'Read blog article', 'Read an article on designing RESTful APIs with Node and PSQL', '10/18/2019', 2)
+    ,(3, 7, 'Watched video series', 'Watched videos from a Youtube series covering fundamental concepts of computer science', '10/22/2019', 3)
+    ,(3, 5, 'Read book series', 'Read from a few chapters from a book series on Javascript', '10/16/2019', 2)
+    ,(2, 6, 'Read article', 'Read an online article on Node and Postgres', '10/19/2019', 1)
+    ,(3, 2, 'Watched Youtube series', 'Watched Youtube tutorials from The Coding Train on various topics relating to Javascript', '10/15/2019', 5)
     ;
 
 INSERT INTO reviews (user_id, resource_id, stars, content)
@@ -81,15 +95,3 @@ INSERT INTO reviews (user_id, resource_id, stars, content)
     ,(3, 2, 5, 'Fantastic. 5 stars')
     ;
 
-INSERT INTO activity_log (user_id, resource_id, activity_name, activity_description, date_completed, hours_spent)
-    VALUES (1, 1, 'Watched a video tutorial', 'Watched a video tutorial on creating an API with the NEP stack', '10/23/2019', 2)
-    ,(1, 2, 'Watched video tutorials', 'Watched video tutorials on different topics of Javascript', '10/25/2019', 3)
-    ,(1, 4, 'Read an article', 'Read an article on bcrypt', '10/26/2019', 1)
-    ,(2, 3, 'Watched video tutorials', 'Watched a Youtube series on using Node.js', '10/20/2019', 4)
-    ,(2, 2, 'Read an article', 'Read a blog article on how to use bcrypt', '10/27/2019', 1)
-    ,(1, 6, 'Read blog article', 'Read an article on designing RESTful APIs with Node and PSQL', '10/18/2019', 2)
-    ,(3, 7, 'Watched video series', 'Watched videos from a Youtube series covering fundamental concepts of computer science', '10/22/2019', 3)
-    ,(3, 5, 'Read book series', 'Read from a few chapters from a book series on Javascript', '10/16/2019', 2)
-    ,(2, 6, 'Read article', 'Read an online article on Node and Postgres', '10/19/2019', 1)
-    ,(3, 2, 'Watched Youtube series', 'Watched Youtube tutorials from The Coding Train on various topics relating to Javascript', '10/15/2019', 5)
-    ;
