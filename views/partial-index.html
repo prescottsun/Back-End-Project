@@ -14,9 +14,8 @@ ${!!isLoggedIn ? `
             <ul>
             ${recentActivity.map( activity => `
                 <li>
-                    <a href='./profile'>
-                    ${activity.first_name} ${activity.last_name}</a>
-                    spent ${activity.hours_spent} hours ${activity.activity_name}</li>
+                    ${activity.first_name} ${activity.last_name}
+                    ${activity.activity_description} for ${activity.hours_spent} hours</li>
                 `).join('')}
             </ul>
         </div>

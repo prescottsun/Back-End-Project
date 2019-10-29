@@ -1,10 +1,10 @@
 <section class='section'>
     <ul>
         ${resourceData.map(resource => `
-            <li><a href='./resources/${resource.id}'>
+            <li><a href=${resource.url}>
                 ${resource.title}</a> - ${resource.type}
-             </li>
-                ${resource.description}
+            </br> 
+            ${resource.description} - <a href='./resources/${resource.id}'>Reviews</a></li>
             
             `).join('')}
     </ul>

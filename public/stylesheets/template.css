@@ -1,0 +1,24 @@
+body {
+    font-family: Ubuntu;
+    font-size: 18px;
+}
+
+ul li {
+    padding: .5rem;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 360px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (min-width: 1200px) {
+
+}
