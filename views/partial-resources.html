@@ -1,34 +1,50 @@
-<section class='section'>
-    <ul>
-        ${resourceData.map(resource => `
-            <li><a href=${resource.url}>
-                ${resource.title}</a> - ${resource.type}
-            </br> 
-            ${resource.description} - <a href='./resources/${resource.id}'>Reviews</a></li>
+<br />
+<section>
+    <div class="container is-fluid">
+        <div class="notification">
+            <h2 class="title is-3"><strong>Recent Activity: </strong></h2>
+        <ul>
+            ${resourceData.map(resource => `
+                <li><a href=${resource.url}>
+                    ${resource.title}</a> - ${resource.type}
+                </br> 
+                ${resource.description} - <a href='./resources/${resource.id}'>Reviews</a></li>
             
             `).join('')}
-    </ul>
+        </ul>    
+        <br />
+        <br />
+    <h2 class="title is-3"><strong>Add a learning resource:</strong></h2>
+    <div class="box">
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <section>
+                        <form action="/resources/add-resource" method="POST">
+                            <label>
+                                Title
+                                <input type="text" aria-placeholder="Title" name="title">
+                            </label>
+                            <label>
+                                Type
+                                <input type="text" aria-placeholder="Type" name="type">
+                            </label>
+                            <label>
+                                Description
+                                <input type="text" aria-placeholder="Description" name="description">
+                            </label>
+                            <label>
+                                URL
+                                <input type="text" aria-placeholder="URL" name="url">
+                            </label>
+                            <button type="submit">Add Resource</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+</div>
 </section>
-
-<h2>Add a learning resource</h2>
-<section>
-    <form action="/resources/add-resource" method="POST">
-        <label>
-            Title
-            <input type="text" aria-placeholder="Title" name="title">
-        </label>
-        <label>
-            Type
-            <input type="text" aria-placeholder="Type" name="type">
-        </label>
-        <label>
-            Description
-            <input type="text" aria-placeholder="Description" name="description">
-        </label>
-        <label>
-            URL
-            <input type="text" aria-placeholder="URL" name="url">
-        </label>
-        <button type="submit">Add Resource</button>
-    </form>
-</section>
+</div>

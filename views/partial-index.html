@@ -1,7 +1,8 @@
+<br />
 ${!!isLoggedIn ? `
-<h2>Welcome ${first_name}!</h2>
+<h2 class="title is-3"><strong>Welcome ${first_name}!</strong></h2>
 ` : `
-<h2>Welcome!</h2>
+<h2 class="title is-3"><strong>Welcome!</strong></h2>
 `}
 <img src='https://i.ibb.co/TPvHFXL/code.jpg'/>
 
@@ -11,6 +12,7 @@ ${!!isLoggedIn ? `
 <section>
     <div class="container is-fluid">
         <div class="notification">
+            <h2 class="title is-4"><strong>Recent Activity: </strong></h2>
             <ul>
             ${recentActivity.map( activity => `
                 <li>
@@ -18,43 +20,53 @@ ${!!isLoggedIn ? `
                     ${activity.activity_description} for ${activity.hours_spent} hours</li>
                 `).join('')}
             </ul>
+<br />
+
+<h2 class="title is-4"><strong>Enter an Activity Log: </strong></h2>
+<div class="box">
+    <article class="media">
+        <div class="media-content">
+            <div class="content">
+                <section>
+                    <form class='textbox' action="/add-activity" method="POST">
+                        <label> Resource
+                            <select name="resource_id">
+                                <option>Select a resource</option>
+                                ${resourceData.map(resource => `
+                                    <option value=${resource.id}>
+                                        ${resource.title}
+                                    </option>
+                                    `).join('')}  
+                            </select>
+                        </label>
+                        <label>
+                            Activity
+                            <input class='textbox' type="text" aria-placeholder="Activity Name" name="activity_name">
+                        </label>
+                        <label>
+                            Activity Description
+                            <input class='textbox' type="text" aria-placeholder="Activity Description" name="activity_description">
+                        </label>
+                        <br />
+                        <label>
+                            Date Completed
+                            <input class='textbox' type="text" placeholder='MM/DD/YYYY' aria-placeholder="Date Completed" name="date_completed">
+                        </label>
+                        <label>
+                            Hours Spent
+                            <input class='textbox' type="text" aria-placeholder="Hours Spent" name="hours_spent">
+                        </label>
+                        <input type="hidden" name="user_id" value=${user_id} />
+                        <button class='textbox' type="submit">Add Activity Log</button>
+                    </form>
+                </section> 
+            </div>
         </div>
-    </div>
+    </article>
+</div>
+</div>
+</div>
 </section>
 
-<h2>Enter an Activity Log</h2>
-<section>
-    <form action="/add-activity" method="POST">
-        <label> Resource
-            <select name="resource_id">
-                <option>Select a resource</option>
-                ${resourceData.map(resource => `
-                    <option value=${resource.id}>
-                        ${resource.title}
-                    </option>
-                    `).join('')}
-            </select>
-        
-        </label>
-        <label>
-            Activity
-            <input type="text" aria-placeholder="Activity Name" name="activity_name">
-        </label>
-        <label>
-            Activity Description
-            <input type="text" aria-placeholder="Activity Description" name="activity_description">
-        </label>
-        <label>
-            Date Completed
-            <input type="text" placeholder='MM/DD/YYYY' aria-placeholder="Date Completed" name="date_completed">
-        </label>
-        <label>
-            Hours Spent
-            <input type="text" aria-placeholder="Hours Spent" name="hours_spent">
-        </label>
-        <input type="hidden" name="user_id" value=${user_id} />
-        <button type="submit">Add Activity Log</button>
-    </form>
-</section> 
 
 

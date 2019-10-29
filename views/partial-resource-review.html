@@ -1,25 +1,42 @@
-<section class='section'>
-    <h2><a href=${resourceData.url}>${resourceData.title} </a>
-        : ${resourceData.type} </h2>
-    <ul>
-        ${resourceReviews.map(review => `
-            <li>
-                ${review.stars} Stars - ${review.content}
-            </li>
-            `).join('')}
-    </ul>
+<br />
+<section>
+    <div class="container is-fluid">
+        <div class="notification">
+                <h2><a href=${resourceData.url}>${resourceData.title} </a>
+                    : ${resourceData.type} </h2>
+                    <ul>
+                            ${resourceReviews.map(review => `
+                                <li>
+                                    ${review.stars} Stars - ${review.content}
+                                </li>
+                                `).join('')}
+                        </ul>  
+        <br />
+        <br />
+    <h2 class="title is-3"><strong>Review this resource:</strong></h2>
+    <div class="box">
+        <article class="media">
+            <div class="media-content">
+                <div class="content">
+                    <section>
+                            <form action="/resources/${resourceData.id}/add-review" method="POST">
+                            <label>
+                                    Stars(1-5)
+                                    <input type="text" aria-placeholder="Stars" name="stars">
+                                </label>
+                            <label>
+                                    Content
+                                    <input type="text" aria-placeholder="Content" name="content">
+                                </label>
+                        <input type="hidden" name="user_id" value=${user_id} />
+                            <button type="submit">Add Review</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+</div>
 </section>
-
-<h2>Review this resource</h2>
-<form action="/resources/${resourceData.id}/add-review" method="POST">
-    <label>
-        Stars(1-5)
-        <input type="text" aria-placeholder="Stars" name="stars">
-    </label>
-    <label>
-        Content
-        <input type="text" aria-placeholder="Content" name="content">
-    </label>
-    <input type="hidden" name="user_id" value=${user_id} />
-    <button type="submit">Add Review</button>
-</form>
+</div>
