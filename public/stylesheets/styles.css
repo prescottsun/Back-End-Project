@@ -1,0 +1,9 @@
+body {
+    padding:75px;
+    margin: 100px;
+}
+.textbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

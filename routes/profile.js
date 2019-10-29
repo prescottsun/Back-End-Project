@@ -2,18 +2,19 @@ const express = require("express"),
     router = express.Router();
 
 const UserModel = require("../models/userModel");
-
+const ActivityModel = require('../models/activityModel');
+const ResourceModel = require('../models/resourceModel');
 
 router.get("/", async (req, res, next) => {
     const userData = await UserModel.getInfo(req.session.user_id);
+    const resourceData = await ResourceModel.getResources();
+    const recentActivity = await ActivityModel.getRecentActivity();
     res.render("template", {
         locals: {
             title: "Profile",
             isLoggedIn: req.session.is_logged_in,
-            userData: userData
-            // first_name: req.session.first_name,
-            // last_name: req.session.last_name,
-            // email_address: req.session.email_address
+            userData: userData,
+            recentActivity: recentActivity
         },
         partials: {
             partial: "partial-profile"
