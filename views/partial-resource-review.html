@@ -7,7 +7,7 @@
                     <ul>
                             ${resourceReviews.map(review => `
                                 <li>
-                                    ${review.stars} Stars - ${review.content}
+                                    ${review.stars} Stars - ${review.content} - <i>${review.first_name}</i>
                                 </li>
                                 `).join('')}
                         </ul>  
