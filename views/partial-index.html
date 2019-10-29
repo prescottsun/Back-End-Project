@@ -28,6 +28,7 @@ ${!!isLoggedIn ? `
     <form action="/add-activity" method="POST">
         <label> Resource
             <select name="resource_id">
+                <option>Select a resource</option>
                 ${resourceData.map(resource => `
                     <option value=${resource.id}>
                         ${resource.title}
