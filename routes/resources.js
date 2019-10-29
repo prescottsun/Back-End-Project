@@ -20,7 +20,6 @@ router.get('/', async (req, res, next) => {
 
 router.post('/add-resource', async (req, res, next) => {
     const { title, type, description, url } = req.body;
-
     const resourceInstance = new ResourceModel(null, title, type, description, url);
     const response = await resourceInstance.addResource();
 
@@ -30,7 +29,6 @@ router.post('/add-resource', async (req, res, next) => {
         res.sendStatus(500);
     }
 });
-
 
 router.get('/:resource_id', async (req, res, next) => {
     const { resource_id } = req.params;

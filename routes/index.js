@@ -5,7 +5,7 @@ const userClass = require("../models/userModel");
 const ActivityModel = require('../models/activityModel');
 const ResourceModel = require('../models/resourceModel');
 
-/* GET home page. */
+
 router.get("/", async (req, res, next) => {
     const userData = await userClass.getInfo();
     const resourceData = await ResourceModel.getResources();
@@ -27,7 +27,6 @@ router.get("/", async (req, res, next) => {
 
 router.post('/add-activity', async (req, res, next) => {
     const { user_id, resource_id, activity_name, activity_description, date_completed, hours_spent } = req.body;
-
     const activityInstance = new ActivityModel(null, user_id, resource_id, activity_name, activity_description, date_completed, hours_spent);
     const response = await activityInstance.addActivityLog();
 

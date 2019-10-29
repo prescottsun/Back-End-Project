@@ -1,5 +1,5 @@
-const express = require("express"),
-    router = express.Router();
+const express = require("express");
+const router = express.Router();
 
 const UserModel = require("../models/userModel");
 const ActivityModel = require('../models/activityModel');
@@ -23,7 +23,6 @@ router.get("/", async (req, res, next) => {
     });
 });
 
-
 router.post("/", async (req, res, next) => {
     const { user_id, about } = req.body;
     const user = new UserModel(user_id, null, null, null, null, about);
@@ -34,7 +33,6 @@ router.post("/", async (req, res, next) => {
         res.sendStatus(401);
     }
 });
-
 
 
 module.exports = router;
