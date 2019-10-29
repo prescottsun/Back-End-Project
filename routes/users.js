@@ -34,7 +34,6 @@ router.get("/logout", (req, res, next) => {
     res.status(200).redirect("/users/login")
 });
 
-
 router.post("/signup", async (req, res, next) => {
     const { first_name, last_name, email_address } = req.body;
     const salt = bcrypt.genSaltSync(10);
@@ -72,7 +71,6 @@ router.post("/login", async(req, res, next) => {
         res.sendStatus(401);
     }
 });
-
 
 
 module.exports = router;

@@ -39,8 +39,6 @@ class Resource {
             return err.message
         }
     }
-    
-
 }
 
 module.exports = Resource;

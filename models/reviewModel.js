@@ -38,7 +38,6 @@ class Review {
             return err.message
         }
     }
-    
 }
 
 module.exports = Review;
