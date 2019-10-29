@@ -3,20 +3,24 @@ ${!!isLoggedIn ? `
 ` : `
 <h2>Welcome!</h2>
 `}
-
+<img src='https://i.ibb.co/TPvHFXL/code.jpg'/>
 
 
 
 
 <section>
-    <ul>
-        ${recentActivity.map( activity => `
-            <li>
-                <a href='./profile'>
-                ${activity.first_name} ${activity.last_name}</a>
-                spent ${activity.hours_spent} hours ${activity.activity_name}</li>
-        `).join('')}
-    </ul>
+    <div class="container is-fluid">
+        <div class="notification">
+            <ul>
+            ${recentActivity.map( activity => `
+                <li>
+                    <a href='./profile'>
+                    ${activity.first_name} ${activity.last_name}</a>
+                    spent ${activity.hours_spent} hours ${activity.activity_name}</li>
+                `).join('')}
+            </ul>
+        </div>
+    </div>
 </section>
 
 <h2>Enter an Activity Log</h2>

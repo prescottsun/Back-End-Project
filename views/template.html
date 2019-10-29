@@ -3,85 +3,67 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Code.log | ${title}</title>
+        <title>Code.log(++) | ${title}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" rel="stylesheet">
     </head>
+
     <body>
-
-            <nav class="navbar" role="navigation" aria-label="main navigation">
-                    <div class="navbar-brand">                  
-                      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                      </a>
-                    </div>
-                  
-                    <div id="navbarBasicExample" class="navbar-menu">
-                      <div class="navbar-start">
-                        <a class="navbar-item">
-                          Home
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <img src="https://i.ibb.co/TPvHFXL/code.jpg" width="155" height="20">
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            </a>
+        </div>
+        ${!!isLoggedIn ? `
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+                <a class="navbar-item" href="/profile">
+                    Profile
+                </a>
+                <a class="navbar-item" href="/resources">
+                    Resources
+                </a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-light" href="/users/logout">
+                            Log out
                         </a>
-                  
-                        <a class="navbar-item">
-                          Documentation
-                        </a>
-                  
-                        <div class="navbar-item has-dropdown is-hoverable">
-                          <a class="navbar-link">
-                            More
-                          </a>
-                  
-                          <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                              About
-                            </a>
-                            <a class="navbar-item">
-                              Jobs
-                            </a>
-                            <a class="navbar-item">
-                              Contact
-                            </a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item">
-                              Report an issue
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                  
-                      <div class="navbar-end">
-                        <div class="navbar-item">
-                          <div class="buttons">
-                            <a class="button is-primary">
-                              <strong>Sign up</strong>
-                            </a>
-                            <a class="button is-light">
-                              Log in
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </nav>
-
-            <ul>
-                ${!!isLoggedIn ? `
-                    <li><a href="/users/logout">Logout</a></li>
-                    <li><a href="/profile">Profile</a></li>
-                    <li><a href="/">Home</a></li>
-            </ul>
                 ` : `
-                <ul>
-                    <li><a href="/users/login">Login</a></li>
-                    <li><a href="/users/signup">Sign Up</a></li>
-                    <li><a href="/">Home</a></li>
-                    <!-- Add /resources link -->
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="/">
+                                Home
+                            </a>
+                            <a class="navbar-item" href="/resources">
+                                Resources
+                            </a>
+                        </div>
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a class="button is-primary" href="/users/signup">
+                                        <strong>Sign up</strong>
+                                    </a>
+                                    <a class="button is-light" href="/users/login">
+                                        Log in
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 `}
-            </ul>
-        <h1 class="container">${title}</h1>
+        </nav>
+
         <main class="container">${partial}</main>
     </body>
 </html>
