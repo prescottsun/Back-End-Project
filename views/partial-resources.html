@@ -2,8 +2,8 @@
     <ul>
         ${resourceData.map(resource => `
             <li><a href='./resources/${resource.id}'>
-                ${resource.title} - Type: ${resource.type}
-            </a> </li>
+                ${resource.title}</a> - ${resource.type}
+             </li>
                 ${resource.description}
             
             `).join('')}
