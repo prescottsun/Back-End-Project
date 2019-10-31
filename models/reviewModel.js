@@ -21,7 +21,10 @@ class Review {
     static async getReviewsByResourceID(resource_id) {
         try {
             const response = await db.any (
-                `SELECT * FROM reviews WHERE resource_id = $1;`,
+                `SELECT reviews.*, users.first_name FROM reviews 
+                LEFT JOIN users on users.id = reviews.user_id
+                WHERE resource_id = $1;
+                `,
                 [resource_id]);
                 return response;
         }   catch (err) {

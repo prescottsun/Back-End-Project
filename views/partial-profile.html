@@ -7,26 +7,27 @@
                 <p><img src="https://capstone.church/wp-content/uploads/2019/02/Envelope-Icon-Bold.png" width='20' height='20'> ${userData.email}</p>
                 <br /><br />
                 <h2 class="title is-4"><strong>About me: </strong></h2>
-                    <p>${userData.about}</p>
+                <p>${userData.about}</p>
+                <div class='box' name='box-shadow'>
+                    <form action="/profile" method="POST">
+                        <label>
+                            Update your about me: 
+                            <input type="text" aria-placeholder="Update your about me" name="about">
+                        </label>
+                        <input type="hidden" name="user_id" value=${userData.id} />
+                        <button type="submit">Update</button>
+                    </form>
+                </div>
                 <br />
                 <h2 class="title is-4">Activities logged: </h2>
                 <p><ul>
                         ${recentActivity.map( activity => `
-                            <li>${activity.activity_description}</li>
+                            <li>${activity.activity_description} for ${activity.hours_spent} hours</li>
                             `).join('')}
                         </ul></p>
                 <br />
             </div>
-        <div class='box' name='box-shadow'>
-            <form action="/profile" method="POST">
-                <label>
-                    Update your about me: 
-                    <input type="text" aria-placeholder="Update your about me" name="about">
-                </label>
-                <input type="hidden" name="user_id" value=${userData.id} />
-                <button type="submit">Update</button>
-            </form>
-        </div>
+        
     </div>
 </div>
 
