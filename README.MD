@@ -9,3 +9,5 @@ We used Bulma for our CSS since that was not the main focus of the assignment.
 Find Prescott at https://github.com/prescottsun
 <br />
 Find Michelle at https://github.com/M-Java86
+<br />
+<img src='./public/images/code.jpg'>
