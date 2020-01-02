@@ -1,5 +1,5 @@
 # Back End Project for DigitalCrafts
-##By Kyra Mellema, Michelle Owens, and Prescott Sun. 
+## By Kyra Mellema, Michelle Owens, and Prescott Sun. 
 
 The main focus of this project was to show our newly learned back end skills.
 
