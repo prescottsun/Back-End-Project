@@ -5,10 +5,10 @@ const pgp = require("pg-promise")({
 });
 
 const options = {
-    host: "localhost",
-    database: "back_end_project"
-    ,user: 'prescottsun',
-    password: 'password'
+    host: 'prescott-psql-db.co6rvrnkoffq.us-east-2.rds.amazonaws.com',
+    database: 'back_end_project',
+    user: 'postgres',
+    password: 'prescottaws'
 };
 
 const db = pgp(options);
